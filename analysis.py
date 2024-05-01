@@ -1,12 +1,18 @@
-# Project Fisher's Iris Data Set:
+#-------------------------------------------------------------------------------------------
+
+# Higher Diploma in Science in Computing - Data Analytics
+
+#-------------------------------------------------------------------------------------------
+
+# Project Fisher's Iris Data Set
 
 # This project was created as part of the Programming ans Scripting 
 # assessment module for the course in the Higher Diploma in Data Analytics at ATU. 
 # This project is using the dataset palmerpenguis to demonstrate the skills developed 
 # in the course in data analysis and visualization.
 
+#-------------------------------------------------------------------------------------------
 # Author: Rodrigo De Martino Ucedo
-
 #-------------------------------------------------------------------------------------------
 
 # LIBRARIES
