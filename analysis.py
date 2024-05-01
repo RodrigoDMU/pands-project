@@ -34,7 +34,7 @@ import matplotlib.pyplot as plt
 
 #-------------------------------------------------------------------------------------------
 
-# Load the Penguins data set.
+# Load the Iris data set.
 df = pd.read_csv("irisdataset.csv")
 print (df)
 
