@@ -7,7 +7,7 @@ This repository was created as part of the [Programming and Scripting](https://w
 
 ## About This Project
 
-This project is about the ["Iris"](https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv) dataset, 
+This project is about the [Iris](https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv) dataset, 
 
 ![Iris](Irisimg.png)
 
@@ -35,7 +35,7 @@ Unwin, A., & Kleinman, K. (2021). The iris data set: In search of the source of 
 
 <a id="1">[1]</a> About READMEs. Availible in: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes. [Accessed 02 May 2024].
 
-<a id="2">[2]</a> Iris. Availible in: https://archive.ics.uci.edu/dataset/53/iris. [Accessed 02 May 2024].
+<a id="2">[2]</a> Iris dataset. Availible in: https://archive.ics.uci.edu/dataset/53/iris. [Accessed 02 May 2024].
 
 <a id="3">[3]</a> Basic writing and formatting syntax. Availible in: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax. [Accessed 02 May 2024].
 
