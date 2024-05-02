@@ -18,7 +18,7 @@ This project is useful for demonstrating some of the skills developed for analys
 ## Getting Started
 
 I used [openincolab](https://openincolab.com/) to generate the following clickable link.
-It opens the [`analysis.py`](https://github.com/RodrigoDMU/pands-project/blob/main/analysis.py) Python in [Google Colab](https://colab.research.google.com/).
+It opens the [`analysis.ipynb`](https://github.com/RodrigoDMU/pands-project/blob/main/analysis.py) Python in [Google Colab](https://colab.research.google.com/).
 
 <a target="_blank" href="https://colab.research.google.com/github/RodrigoDMU/pands-project/blob/main/analysis.py">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
