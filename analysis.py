@@ -28,13 +28,18 @@ import numpy as np
 # Plotting.
 import matplotlib.pyplot as plt
 
+# Graphic manipulation.
+import seaborn as sns
+
 #-------------------------------------------------------------------------------------------
 
 # LOAD DATA
 
 #-------------------------------------------------------------------------------------------
 
+#---------------------------
 # Load the Iris data set.
+#---------------------------
 df = pd.read_csv("irisdataset.csv")
 print (df)
 
@@ -60,9 +65,11 @@ print (df)
 
 #-------------------------------------------------------------------------------------------
 
+#-----------------------------------
 # The first 5 rows of the dataset.
-df.head ()
-print (df)
+#-----------------------------------
+first5 = df.head ()
+print (first5)
 
 #      | sepal_length | sepal_width | petal_length | petal_width |   species
 # -----|--------------|-------------|--------------|-------------|-------------
@@ -72,63 +79,80 @@ print (df)
 #   3  |     4.6	  |     3.1	    |      1.5	   |     0.2	 |    setosa
 #   4  |     5.0	  |     3.6	    |      1.4	   |     0.2	 |    setosa
 #------|--------------|-------------|--------------|-------------|-------------
+
+#-----------------------------------
 # The last 5 rows of the dataset.
-df.tail ()
-print (df)
+#-----------------------------------
+last5 = df.tail ()
+print (last5)
 
-#	sepal_length	sepal_width	petal_length	petal_width	species
-#145	6.7	3.0	5.2	2.3	virginica
-#146	6.3	2.5	5.0	1.9	virginica
-#147	6.5	3.0	5.2	2.0	virginica
-#148	6.2	3.4	5.4	2.3	virginica
-#149	5.9	3.0	5.1	1.8	virginica
+#      | sepal_length | sepal_width | petal_length | petal_width |   species
+# -----|--------------|-------------|--------------|-------------|-------------
+#  145 |       6.7	  |     3.0	    |      5.2	   |     2.3	 |  virginica
+#  146 |       6.3	  |     2.5	    |      5.0	   |     1.9	 |  virginica
+#  147 |       6.5	  |     3.0	    |      5.2	   |     2.0	 |  virginica
+#  148 |       6.2	  |     3.4	    |      5.4	   |     2.3	 |  virginica
+#  149 |       5.9	  |     3.0	    |      5.1	   |     1.8	 |  virginica
+#------|--------------|-------------|--------------|-------------|-------------
 
+#--------------------------------
 # Informations of the dataset.
-df.info ()
-print (df)
+#--------------------------------
+info = df.info ()
+print (info)
 
-#<class 'pandas.core.frame.DataFrame'>
-#RangeIndex: 150 entries, 0 to 149
-#Data columns (total 5 columns):
- #   Column        Non-Null Count  Dtype  
-#---  ------        --------------  -----  
-# 0   sepal_length  150 non-null    float64
-# 1   sepal_width   150 non-null    float64
-# 2   petal_length  150 non-null    float64
-# 3   petal_width   150 non-null    float64
-# 4   species       150 non-null    object 
-#dtypes: float64(4), object(1)
+# <class 'pandas.core.frame.DataFrame'>
+# RangeIndex: 150 entries, 0 to 149
+# Data columns (total 5 columns):
+#        Column     |   Non-Null Count  |    Dtype  
+#-------------------|-------------------|-------------
+#  0   sepal_length |   150 non-null    |   float64
+#  1   sepal_width  |   150 non-null    |   float64
+#  2   petal_length |   150 non-null    |   float64
+#  3   petal_width  |   150 non-null    |   float64
+#  4   species      |   150 non-null    |   object 
+#-----------------------------------------------------
+# dtypes: float64(4), object(1)
 
+#----------------------------
 # Count the number of null.
-df.isnull().sum()
-print (df)
+#----------------------------
+isnull = df.isnull().sum()
+print (isnull)
 
-# ---------------|-----
+#     Species    | Freq
+# ---------------|------
 #  sepal_length  |  0
 #  sepal_width   |  0
 #  petal_length  |  0
 #  petal_width   |  0
 #  species       |  0
-# ---------------|-----
+# ---------------|------
 # dtype: int64
 
+#-------------------------
 # Descibe the data set.
-df.describe()
-print (df)
+#-------------------------
+describe = df.describe()
+print (describe)
 
-#	sepal_length	sepal_width	petal_length	petal_width
-#count	150.000000	150.000000	150.000000	150.000000
-#mean	5.843333	3.057333	3.758000	1.199333
-#std	0.828066	0.435866	1.765298	0.762238
-#min	4.300000	2.000000	1.000000	0.100000
-#25%	5.100000	2.800000	1.600000	0.300000
-#50%	5.800000	3.000000	4.350000	1.300000
-#75%	6.400000	3.300000	5.100000	1.800000
-#max	7.900000	4.400000	6.900000	2.500000
+#        | sepal_length | sepal_width | petal_length | petal_width 
+# -------|--------------|-------------|--------------|-------------
+#  count |  150.000000	|  150.000000 |	150.000000	 |  150.000000
+#  mean	 |  5.843333	|  3.057333	  |  3.758000	 |   1.199333
+#  std	 |  0.828066	|  0.435866	  |  1.765298	 |   0.762238
+#  min	 |  4.300000	|  2.000000	  |  1.000000	 |   0.100000
+#  25%	 |  5.100000	|  2.800000	  |  1.600000	 |   0.300000
+#  50%	 |  5.800000	|  3.000000	  |  4.350000	 |   1.300000
+#  75%	 |  6.400000	|  3.300000	  |  5.100000	 |   1.800000
+#  max	 |  7.900000	|  4.400000	  |  6.900000	 |   2.500000
+#--------|--------------|-------------|--------------|-------------
 
+#-----------------------------------------------
 # Count the number of penguins of each specie.
-df.value_counts(['species'])
-print (df)
+#-----------------------------------------------
+value_counts = df.value_counts(['species'])
+print (value_counts)
 
 #      species      |  Freq
 # ------------------|---------
@@ -138,9 +162,67 @@ print (df)
 # ----------------------------
 # Name: count, dtype: int64
 
+#---------------------------
+# Bar Chart
+#---------------------------
+# Add figure size.
+plt.figure(figsize = (8,6))
+# Count the number of penguins for each specie.
+ax = sns.countplot(x='species', data=df, edgecolor = "black", palette=['royalblue','blueviolet','mediumslateblue'])
+# Add title.
+plt.title('Number of Iris Flowers by Species')
+# Add labels (X and Y).
+plt.xlabel('Species')
+plt.ylabel('Number of Iris Flowers')
+# Add total count on top of bar.
+for container in ax.containers:
+    ax.bar_label(container)
+plt.show ()    
 
+#  _______________________________
+# |                               |
+# |     Fig. 1 - Bar Chart        |
+# |_______________________________|
 
+#-----------------------------
+# Histogram of Iris Flowers.
+#-----------------------------
+slength = df['sepal_length']
+sdwidth = df['sepal_width']
+plength = df['petal_length']
+pwidth = df['petal_width']
+# Add figure size.
+plt.figure(figsize = (12,10))
+# Subplot position.
+plt.subplot(2,2,1)
+plt.hist(slength, bins=20, color = "mediumslateblue",  alpha=0.7, edgecolor = 'black')
+# Add labels (X and Y).
+plt.xlabel('Frequency')
+plt.ylabel('Sepal Length (cm)')
+# Subplot position.
+plt.subplot(2,2,2)
+plt.hist(sdwidth, bins=20, color = "mediumslateblue", alpha=0.7, edgecolor = 'black')
+# Add labels (X and Y).
+plt.xlabel('Frequency')
+plt.ylabel('Sepal Width (cm)')
+# Subplot position.
+plt.subplot(2,2,3)
+plt.hist(plength, bins=20, color = "mediumslateblue", alpha=0.7, edgecolor = 'black')
+# Add labels (X and Y).
+plt.xlabel('Frequency')
+plt.ylabel('Petal Length (cm)')
+# Subplot position.
+plt.subplot(2,2,4)
+plt.hist(pwidth, bins=20, color = "mediumslateblue", alpha=0.7, edgecolor = 'black')
+# Add labels (X and Y).
+plt.xlabel('Frequency')
+plt.ylabel('Petal Width (cm)')
+plt.show()
 
+#  _______________________________
+# |                               |
+# |     Fig. 2 - Histogram        |
+# |_______________________________|
 
 
 #-------------------------------------------------------------------------------------------
