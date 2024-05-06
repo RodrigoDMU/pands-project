@@ -162,11 +162,53 @@ print (value_counts)
 # ----------------------------
 # Name: count, dtype: int64
 
+#-------------------------------
+# Correlation of the data set.
+#-------------------------------
+correlation = df.corr(method='pearson', numeric_only=True)
+
+#                | sepal_length | sepal_width | petal_length | petal_width 
+# ---------------|--------------|-------------|--------------|-------------
+#  sepal_length	 |   1.000000   |  -0.117570  |    0.871754  |   0.817941
+#  sepal_width   |  -0.117570   |   1.000000  |   -0.428440  |  -0.366126
+#  petal_length  |   0.871754   |  -0.428440  |    1.000000  |   0.962865
+#  petal_width   |   0.817941   |  -0.366126  |    0.962865  |   1.000000
+#----------------|--------------|-------------|--------------|-------------
+
+#------------------------------------------
+# Correlation of the data set by Species.
+#------------------------------------------
+correlation_species = df.groupby('species').corr(method='pearson', numeric_only=True)
+
+#  species     |              | sepal_length | sepal_width | petal_length | petal_width 
+# -------------|--------------|--------------|-------------|--------------|---------------					
+#    setosa    | sepal_length |   1.000000   |   0.742547  |   0.267176   |   0.278098
+#              | sepal_width  |   0.742547   |   1.000000  |   0.177700   |   0.232752
+#              | petal_length |   0.267176   |   0.177700  |   1.000000   |   0.331630
+#              | petal_width  |   0.278098   |   0.232752  |   0.331630   |   1.000000
+#--------------|--------------|--------------|-------------|--------------|---------------
+#  versicolor  | sepal_length |   1.000000   |   0.525911  |   0.754049   |   0.546461
+#              | sepal_width  |   0.525911   |   1.000000  |   0.560522   |   0.663999
+#              | petal_length |   0.754049   |   0.560522  |   1.000000   |   0.786668
+#              | petal_width  |   0.546461   |   0.663999  |   0.786668   |   1.000000
+#--------------|--------------|--------------|-------------|--------------|---------------
+#   virginica  | sepal_length |   1.000000   |   0.457228  |   0.864225   |   0.281108
+#              | sepal_width  |   0.457228   |   1.000000  |   0.401045   |   0.537728
+#              | petal_length |   0.864225   |   0.401045  |   1.000000   |   0.322108
+#              | petal_width  |   0.281108   |   0.537728  |   0.322108   |   1.000000
+#--------------|--------------|--------------|-------------|------------------------------
+
+#-------------------------------------------------------------------------------------------
+
+# VISUALIZATION DATA
+
+#-------------------------------------------------------------------------------------------
+
 #---------------------------
 # Bar Chart
 #---------------------------
 # Add figure size.
-plt.figure(figsize = (8,6))
+plt.figure(figsize = (12,10))
 # Count the number of penguins for each specie.
 ax = sns.countplot(x='species', data=df, edgecolor = "black", palette=['royalblue','blueviolet','mediumslateblue'])
 # Add title.
@@ -175,8 +217,8 @@ plt.title('Number of Iris Flowers by Species')
 plt.xlabel('Species')
 plt.ylabel('Number of Iris Flowers')
 # Add total count on top of bar.
-for container in ax.containers:
-    ax.bar_label(container)
+for container in ax.containers:  # Container with all the bars and optionally error bars, likely returned from bar
+    ax.bar_label(container) # bar_label = add labels to bars
 plt.show ()    
 
 #  _______________________________
@@ -194,8 +236,8 @@ pwidth = df['petal_width']
 # Add figure size.
 plt.figure(figsize = (12,10))
 # Subplot position.
-plt.subplot(2,2,1)
-plt.hist(slength, bins=20, color = "mediumslateblue",  alpha=0.7, edgecolor = 'black')
+plt.subplot(2,2,1) # plt.subplot(row, column, position)
+plt.hist(slength, bins=20, color = "mediumslateblue",  alpha=0.7, edgecolor = 'black') # bins = number of bars, alpha = transparency
 # Add labels (X and Y).
 plt.xlabel('Frequency')
 plt.ylabel('Sepal Length (cm)')

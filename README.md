@@ -17,7 +17,7 @@ This project is useful for demonstrating some of the skills developed for analys
 
 ## Getting Started
 
-I used [openincolab](https://openincolab.com/) to generate the following clickable link. It opens the [`analysis.ipynb`](https://github.com/RodrigoDMU/pands-project/blob/main/analysis.py) Jupyter Notebook in [Google Colab](https://colab.research.google.com/).
+I used [openincolab](https://openincolab.com/) to generate the following clickable link. It opens the [`analysisjn.ipynb`](https://github.com/RodrigoDMU/pands-project/blob/main/analysis.py) Jupyter Notebook in [Google Colab](https://colab.research.google.com/).
 
 <a target="_blank" href="https://colab.research.google.com/github/RodrigoDMU/pands-project/blob/main/analysisjn.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -44,6 +44,6 @@ Unwin, A., & Kleinman, K. (2021). The iris data set: In search of the source of 
 ## Author
 
 **Rodrigo De Martino Ucedo:**
- I am currently studying Higher Diploma in Computing in Data Analysis at Atlantic Technological University. For more information or questions, please contact me on GitHub or add me on [LinkedIn](https://www.linkedin.com/in/rdmdemartino/).
+ I am currently studying Higher Diploma in Computing in Data Analytics at Atlantic Technological University. For more information or questions, please contact me on GitHub or add me on [LinkedIn](https://www.linkedin.com/in/rdmdemartino/).
 *****
 last commit on 20/05/2024
