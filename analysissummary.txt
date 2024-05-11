@@ -15,26 +15,6 @@
 # Author: Rodrigo De Martino Ucedo
 #-------------------------------------------------------------------------------------------
 
-# LIBRARIES
-
-#-------------------------------------------------------------------------------------------
-
-# Data frames.
-import pandas as pd
-
-# Numerical arrays.
-import numpy as np
-
-# Plotting.
-import matplotlib.pyplot as plt
-
-# Graphic manipulation.
-import seaborn as sns
-
-# Ignore FutureWarning.
-import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
-
 #-------------------------------------------------------------------------------------------
 
 # LOAD DATA
@@ -44,8 +24,6 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 #---------------------------
 # Load the Iris data set.
 #---------------------------
-df = pd.read_csv("irisdataset.csv")
-print (df)
 
 #      | sepal_length | sepal_width | petal_length | petal_width |     species
 # -----|--------------|-------------|--------------|-------------|----------------
@@ -72,8 +50,6 @@ print (df)
 #-----------------------------------
 # The first 5 rows of the dataset.
 #-----------------------------------
-first5 = df.head ()
-print (first5)
 
 #      | sepal_length | sepal_width | petal_length | petal_width |   species
 # -----|--------------|-------------|--------------|-------------|-------------
@@ -87,8 +63,6 @@ print (first5)
 #-----------------------------------
 # The last 5 rows of the dataset.
 #-----------------------------------
-last5 = df.tail ()
-print (last5)
 
 #      | sepal_length | sepal_width | petal_length | petal_width |    species
 # -----|--------------|-------------|--------------|-------------|----------------
@@ -102,8 +76,6 @@ print (last5)
 #--------------------------------
 # Informations of the dataset.
 #--------------------------------
-info = df.info ()
-print (info)
 
 # <class 'pandas.core.frame.DataFrame'>
 # RangeIndex: 150 entries, 0 to 149
@@ -121,8 +93,6 @@ print (info)
 #----------------------------
 # Count the number of null.
 #----------------------------
-isnull = df.isnull().sum()
-print (isnull)
 
 #     Species    | Freq
 # ---------------|------
@@ -137,8 +107,6 @@ print (isnull)
 #-------------------------
 # Descibe the data set.
 #-------------------------
-describe = df.describe()
-print (describe)
 
 #        | sepal_length | sepal_width | petal_length | petal_width 
 # -------|--------------|-------------|--------------|-------------
@@ -155,7 +123,6 @@ print (describe)
 #-----------------------------------
 # Descibe the data set by Species. 
 #-----------------------------------
-df.groupby('species').describe().transpose()
 
 #              | species | Iris-setosa | Iris-versicolor |	Iris-virginica
 #--------------|---------|-------------|-----------------|-------------------
@@ -199,8 +166,6 @@ df.groupby('species').describe().transpose()
 #--------------------------------------------------
 # Count the number of iris flower of each specie.
 #--------------------------------------------------
-value_counts = df.value_counts(['species'])
-print (value_counts)
 
 #      species      |  Freq
 # ------------------|---------
@@ -213,7 +178,6 @@ print (value_counts)
 #-------------------------------
 # Correlation of the data set.
 #-------------------------------
-correlation = df.corr(method='pearson', numeric_only=True)
 
 #                | sepal_length | sepal_width | petal_length | petal_width 
 # ---------------|--------------|-------------|--------------|-------------
@@ -226,7 +190,6 @@ correlation = df.corr(method='pearson', numeric_only=True)
 #------------------------------------------
 # Correlation of the data set by Species.
 #------------------------------------------
-correlation_species = df.groupby('species').corr(method='pearson', numeric_only=True)
 
 #     species     |              | sepal_length | sepal_width | petal_length | petal_width 
 # ----------------|--------------|--------------|-------------|--------------|---------------					
@@ -255,20 +218,6 @@ correlation_species = df.groupby('species').corr(method='pearson', numeric_only=
 #---------------------------
 # Bar Chart
 #---------------------------
-# Add figure size.
-plt.figure(figsize = (12,10))
-# Count the number of iris flower for each specie.
-ax = sns.countplot(x='species', data=df, edgecolor = "black", palette=['royalblue','blueviolet','mediumslateblue'])
-# Add title.
-plt.title('Number of Iris Flowers by Species')
-# Add labels (X and Y).
-plt.xlabel('Species')
-plt.ylabel('Number of Iris Flowers')
-# Add total count on top of bar.
-for container in ax.containers:  # Container with all the bars and optionally error bars, likely returned from bar
-    ax.bar_label(container) # bar_label = add labels to bars
-# Display the figure.
-plt.show ()    
 
 #  _______________________________
 # |                               |
@@ -278,42 +227,6 @@ plt.show ()
 #-----------------------------
 # Histogram of Iris Flowers.
 #-----------------------------
-slength = df['sepal_length']
-sdwidth = df['sepal_width']
-plength = df['petal_length']
-pwidth = df['petal_width']
-# Add figure size.
-plt.figure(figsize = (12,10))
-# Subplot position.
-plt.subplot(2,2,1) # subplot (row, column, position)
-plt.hist(slength, bins=20, color = "mediumslateblue",  alpha=0.7, edgecolor = 'black') # bins = number of bars, alpha = transparency
-# Add labels (X and Y).
-plt.xlabel('Sepal Length (cm)')
-plt.ylabel('Frequency')
-
-# Subplot position.
-plt.subplot(2,2,2)
-plt.hist(sdwidth, bins=20, color = "mediumslateblue", alpha=0.7, edgecolor = 'black')
-# Add labels (X and Y).
-plt.xlabel('Sepal Width (cm)')
-plt.ylabel('Frequency')
-
-# Subplot position.
-plt.subplot(2,2,3)
-plt.hist(plength, bins=20, color = "mediumslateblue", alpha=0.7, edgecolor = 'black')
-# Add labels (X and Y).
-plt.xlabel('Petal Length (cm)')
-plt.ylabel('Frequency')
-
-# Subplot position.
-plt.subplot(2,2,4)
-plt.hist(pwidth, bins=20, color = "mediumslateblue", alpha=0.7, edgecolor = 'black')
-# Add labels (X and Y).
-plt.xlabel('Petal Width (cm)')
-plt.ylabel('Frequency')
-
-# Display the figure.
-plt.show()
 
 #  _______________________________
 # |                               |
@@ -324,39 +237,6 @@ plt.show()
 # Histogram of Iris Flowers by Species.
 #----------------------------------------
 
-# Add figure size.
-plt.figure(figsize = (12,10))
-# Subplot position.
-plt.subplot(2,2,1) # subplot (row, column, position)
-sns.histplot(data=df, x="sepal_length", hue = "species", multiple="stack", bins = 20, edgecolor = "black", palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Sepal Length (cm)')
-plt.ylabel('Frequency')
-
-# Subplot position.
-plt.subplot(2,2,2)
-sns.histplot(data=df, x='sepal_width', hue = "species", multiple="stack", bins = 20, edgecolor = "black", palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Sepal Width (cm)')
-plt.ylabel('Frequency')
-
-# Subplot position.
-plt.subplot(2,2,3)
-sns.histplot(data=df, x='petal_length', hue = "species", multiple="stack", bins = 20, edgecolor = "black", palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Petal Length (cm)')
-plt.ylabel('Frequency')
-
-# Subplot position.
-plt.subplot(2,2,4)
-sns.histplot(data=df, x='petal_width', hue = "species", multiple="stack", bins = 20, edgecolor = "black", palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Petal Width (cm)')
-plt.ylabel('Frequency')
-
-# Display the figure.
-plt.show()
-
 #  _________________________________________
 # |                                         |
 # |     Fig. 3 - Histogram by Species       |
@@ -365,39 +245,6 @@ plt.show()
 #---------------------------------------
 # Boxplot of Iris Flowers by Species.
 #---------------------------------------
-
-# Add figure size.
-plt.figure(figsize = (12,10))
-# Subplot position.
-plt.subplot(2,2,1) # subplot (row, column, position)
-sns.boxplot(x='species',y='sepal_length',data=df, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Species')
-plt.ylabel('Sepal Length (cm)')
-
-# Subplot position.
-plt.subplot(2,2,2)
-sns.boxplot(x='species',y='sepal_width',data=df, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Species')
-plt.ylabel('Sepal Width (cm)')
-
-# Subplot position.
-plt.subplot(2,2,3)
-sns.boxplot(x='species',y='petal_length',data=df, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Species')
-plt.ylabel('Petal Length (cm)')
-
-# Subplot position.
-plt.subplot(2,2,4)
-sns.boxplot(x='species',y='petal_width',data=df, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Species')
-plt.ylabel('Petal Width (cm)')
-
-# Display the figure.
-plt.show()
 
 #  ___________________________
 # |                           |
@@ -408,92 +255,6 @@ plt.show()
 # Scatter plot of Iris Flowers by Species.
 #-------------------------------------------
 
-# Add figure size.
-plt.figure(figsize = (20,20))
-# Subplot position.
-plt.subplot(4,3,1) # subplot (row, column, position)
-sns.scatterplot(x='sepal_length', y='sepal_width', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Sepal Length (cm)')
-plt.ylabel('Sepal Width (cm)')
-
-# Subplot position.
-plt.subplot(4,3,2)
-sns.scatterplot(x='sepal_length', y='petal_length', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Sepal Length (cm)')
-plt.ylabel('Petal Length (cm)')
-
-# Subplot position.
-plt.subplot(4,3,3)
-sns.scatterplot(x='sepal_length', y='petal_width', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Sepal Length (cm)')
-plt.ylabel('Petal Width (cm)')
-
-plt.subplot(4,3,4) 
-sns.scatterplot(x='sepal_width', y='sepal_length', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Sepal Width (cm)')
-plt.ylabel('Sepal Length (cm)')
-
-# Subplot position.
-plt.subplot(4,3,5)
-sns.scatterplot(x='sepal_width', y='petal_length', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Sepal Width (cm)')
-plt.ylabel('Petal Length (cm)')
-
-# Subplot position.
-plt.subplot(4,3,6)
-sns.scatterplot(x='sepal_width', y='petal_width', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Sepal Width (cm)')
-plt.ylabel('Petal Width (cm)')
-
-plt.subplot(4,3,7) 
-sns.scatterplot(x='petal_length', y='sepal_length', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Petal Length (cm)')
-plt.ylabel('Sepal Length (cm)')
-
-# Subplot position.
-plt.subplot(4,3,8)
-sns.scatterplot(x='petal_length', y='sepal_width', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Petal Length (cm)')
-plt.ylabel('Sepal Width (cm)')
-
-# Subplot position.
-plt.subplot(4,3,9)
-sns.scatterplot(x='petal_length', y='petal_width', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Petal Length (cm)')
-plt.ylabel('Petal Width (cm)')
-
-plt.subplot(4,3,10) 
-sns.scatterplot(x='petal_width', y='sepal_length', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Petal Width (cm)')
-plt.ylabel('Sepal Length (cm)')
-
-# Subplot position.
-plt.subplot(4,3,11)
-sns.scatterplot(x='petal_width', y='sepal_width', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Petal Width (cm)')
-plt.ylabel('Sepal Width (cm)')
-
-# Subplot position.
-plt.subplot(4,3,12)
-sns.scatterplot(x='petal_width', y='sepal_length', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
-# Add labels (X and Y).
-plt.xlabel('Petal Width (cm)')
-plt.ylabel('Petal Length (cm)')
-
-# Display the figure.
-plt.show()
-
 #  ____________________________________________
 # |                                            |
 # |     Fig. 5 - Scatter plot by Species       |
@@ -502,10 +263,6 @@ plt.show()
 #----------------------------------------
 # Pair plot of Iris Flowers by Species.
 #----------------------------------------
-
-sns.pairplot(df, hue="species", height=3,  palette=['royalblue','blueviolet','mediumslateblue'])
-# Display the figure.
-plt.show()
 
 #  _________________________________________
 # |                                         |
