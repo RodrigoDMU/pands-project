@@ -155,7 +155,8 @@ print (describe)
 #-----------------------------------
 # Descibe the data set by Species. 
 #-----------------------------------
-df.groupby('species').describe().transpose()
+describe_species = df.groupby('species').describe().transpose()
+print (describe_species)
 
 #              | species | Iris-setosa | Iris-versicolor |	Iris-virginica
 #--------------|---------|-------------|-----------------|-------------------
@@ -214,6 +215,7 @@ print (value_counts)
 # Correlation of the data set.
 #-------------------------------
 correlation = df.corr(method='pearson', numeric_only=True)
+print (correlation)
 
 #                | sepal_length | sepal_width | petal_length | petal_width 
 # ---------------|--------------|-------------|--------------|-------------
@@ -227,6 +229,7 @@ correlation = df.corr(method='pearson', numeric_only=True)
 # Correlation of the data set by Species.
 #------------------------------------------
 correlation_species = df.groupby('species').corr(method='pearson', numeric_only=True)
+print (correlation_species)
 
 #     species     |              | sepal_length | sepal_width | petal_length | petal_width 
 # ----------------|--------------|--------------|-------------|--------------|---------------					
@@ -257,7 +260,7 @@ correlation_species = df.groupby('species').corr(method='pearson', numeric_only=
 #---------------------------
 # Add figure size.
 plt.figure(figsize = (12,10))
-# Count the number of iris flower for each specie.
+# Count the number of penguins for each specie.
 ax = sns.countplot(x='species', data=df, edgecolor = "black", palette=['royalblue','blueviolet','mediumslateblue'])
 # Add title.
 plt.title('Number of Iris Flowers by Species')
@@ -268,7 +271,7 @@ plt.ylabel('Number of Iris Flowers')
 for container in ax.containers:  # Container with all the bars and optionally error bars, likely returned from bar
     ax.bar_label(container) # bar_label = add labels to bars
 # Display the figure.
-plt.show ()    
+plt.show() 
 
 #  _______________________________
 # |                               |
@@ -282,8 +285,10 @@ slength = df['sepal_length']
 sdwidth = df['sepal_width']
 plength = df['petal_length']
 pwidth = df['petal_width']
+
 # Add figure size.
 plt.figure(figsize = (12,10))
+
 # Subplot position.
 plt.subplot(2,2,1) # subplot (row, column, position)
 plt.hist(slength, bins=20, color = "mediumslateblue",  alpha=0.7, edgecolor = 'black') # bins = number of bars, alpha = transparency
@@ -326,6 +331,7 @@ plt.show()
 
 # Add figure size.
 plt.figure(figsize = (12,10))
+
 # Subplot position.
 plt.subplot(2,2,1) # subplot (row, column, position)
 sns.histplot(data=df, x="sepal_length", hue = "species", multiple="stack", bins = 20, edgecolor = "black", palette=['royalblue','blueviolet','mediumslateblue'])
@@ -368,14 +374,15 @@ plt.show()
 
 # Add figure size.
 plt.figure(figsize = (12,10))
+
 # Subplot position.
 plt.subplot(2,2,1) # subplot (row, column, position)
 sns.boxplot(x='species',y='sepal_length',data=df, palette=['royalblue','blueviolet','mediumslateblue'])
 # Add labels (X and Y).
 plt.xlabel('Species')
 plt.ylabel('Sepal Length (cm)')
-
 # Subplot position.
+
 plt.subplot(2,2,2)
 sns.boxplot(x='species',y='sepal_width',data=df, palette=['royalblue','blueviolet','mediumslateblue'])
 # Add labels (X and Y).
@@ -404,12 +411,51 @@ plt.show()
 # |     Fig. 4 - Boxplot      |
 # |___________________________|
 
+#---------------------------------------
+# Correlation Heatmap of the data set.
+#---------------------------------------
+
+sns.heatmap(correlation, cmap = "Purples", annot=True, fmt='.2g')
+# Add title.
+plt.title('Correlation Heatmap of Iris Flowers')
+# Add labels (X and Y).
+plt.xlabel('Features')
+plt.ylabel('Features')
+
+# Display the figure.
+plt.show()
+
+#  ___________________________
+# |                           |
+# |     Fig. 5 - Heatmap      |
+# |___________________________|
+
+#-------------------------------------------------
+# Correlation Heatmap of the data set by Species. 
+#-------------------------------------------------
+
+sns.heatmap(correlation_species, cmap = "Purples", annot=True, fmt='.2g')
+# Add title.
+plt.title('Correlation Heatmap of Iris Flowers by Species')
+# Add labels (X and Y).
+plt.xlabel('Features')
+plt.ylabel('Species')
+
+# Display the figure.
+plt.show()
+
+#  _____________________________________
+# |                                     |
+# |     Fig. 6 - Heatmap by Species     |
+# |_____________________________________|
+
 #-------------------------------------------
 # Scatter plot of Iris Flowers by Species.
 #-------------------------------------------
 
 # Add figure size.
 plt.figure(figsize = (20,20))
+
 # Subplot position.
 plt.subplot(4,3,1) # subplot (row, column, position)
 sns.scatterplot(x='sepal_length', y='sepal_width', data=df, hue ='species', size= 50, palette=['royalblue','blueviolet','mediumslateblue'])
@@ -496,7 +542,7 @@ plt.show()
 
 #  ____________________________________________
 # |                                            |
-# |     Fig. 5 - Scatter plot by Species       |
+# |     Fig. 7 - Scatter plot by Species       |
 # |____________________________________________|
 
 #----------------------------------------
@@ -509,7 +555,7 @@ plt.show()
 
 #  _________________________________________
 # |                                         |
-# |     Fig. 6 - Pair plot by Species       |
+# |     Fig. 8 - Pair plot by Species       |
 # |_________________________________________|
 
 #-------------------------------------------------------------------------------------------
