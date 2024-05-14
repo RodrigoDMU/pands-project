@@ -6,7 +6,7 @@
 
 # Project Fisher's Iris Data Set
 
-# This project was created as part of the Programming ans Scripting assessment
+# This project was created as part of the Programming and Scripting assessment
 # module for the course in the Higher Diploma in Data Analytics at ATU. 
 # This project is using the dataset Iris to demonstrate the skills developed 
 # in the course in data analysis and visualization.
@@ -21,9 +21,6 @@
 
 # Data frames.
 import pandas as pd
-
-# Numerical arrays.
-import numpy as np
 
 # Plotting.
 import matplotlib.pyplot as plt
@@ -135,7 +132,7 @@ print (isnull)
 # dtype: int64
 
 #-------------------------
-# Descibe the data set.
+# Describe the data set.
 #-------------------------
 describe = df.describe()
 print (describe)
@@ -153,7 +150,7 @@ print (describe)
 #--------|--------------|-------------|--------------|-------------
 
 #-----------------------------------
-# Descibe the data set by Species. 
+# Describe the data set by Species. 
 #-----------------------------------
 describe_species = df.groupby('species').describe().transpose()
 print (describe_species)
