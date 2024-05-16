@@ -7,7 +7,7 @@ This repository was created as part of the [Programming and Scripting](https://w
 
 ## About This Project
 
-This project is about the [Iris](https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv) dataset, 
+This project is about the [Iris](https://archive.ics.uci.edu/dataset/53/iris) dataset, 
 
 ![Iris](Irisimg.png)
 

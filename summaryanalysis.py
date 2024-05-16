@@ -78,7 +78,7 @@ with open("analysissummary.txt", "wt") as file: #[1]
     file.write("Informations of the dataset.\n\n")
     file.write("info = df.info ()\n")
     file.write("print (info)\n\n")
-    file.write(str(df.info(buf=file)) + "\n\n") #[2]
+    file.write(str(df.info(buf=file)) + "\n\n") #[2] Output .info using buffer
 
     file.write("Count the number of null.\n\n")
     file.write("isnull = df.isnull().sum()\n")
@@ -142,8 +142,6 @@ with open("analysissummary.txt", "wt") as file: #[1]
 
     file.write("End\n")
     file.write("last commit on 20/05/2024.\n\n")
-
-
 
 #-------------------------------------------------------------------------------------------
 

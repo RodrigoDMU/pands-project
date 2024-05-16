@@ -267,6 +267,10 @@ plt.ylabel('Number of Iris Flowers')
 # Add total count on top of bar.
 for container in ax.containers:  # Container with all the bars and optionally error bars, likely returned from bar
     ax.bar_label(container) # bar_label = add labels to bars
+
+# Save the figure.
+plt.savefig('Fig. 1 - Bar Chart.png')
+
 # Display the figure.
 plt.show() 
 
@@ -314,6 +318,9 @@ plt.hist(pwidth, bins=20, color = "mediumslateblue", alpha=0.7, edgecolor = 'bla
 plt.xlabel('Petal Width (cm)')
 plt.ylabel('Frequency')
 
+# Save the figure.
+plt.savefig('Fig. 2 - Histogram.png')
+
 # Display the figure.
 plt.show()
 
@@ -356,6 +363,9 @@ sns.histplot(data=df, x='petal_width', hue = "species", multiple="stack", bins =
 # Add labels (X and Y).
 plt.xlabel('Petal Width (cm)')
 plt.ylabel('Frequency')
+
+# Save the figure.
+plt.savefig('Fig. 3 - Histogram by Species.png')
 
 # Display the figure.
 plt.show()
@@ -400,6 +410,9 @@ sns.boxplot(x='species',y='petal_width',data=df, palette=['royalblue','blueviole
 plt.xlabel('Species')
 plt.ylabel('Petal Width (cm)')
 
+# Save the figure.
+plt.savefig('Fig. 4 - Boxplot.png')
+
 # Display the figure.
 plt.show()
 
@@ -419,6 +432,9 @@ plt.title('Correlation Heatmap of Iris Flowers')
 plt.xlabel('Features')
 plt.ylabel('Features')
 
+# Save the figure.
+plt.savefig('Fig. 5 - Heatmap.png')
+
 # Display the figure.
 plt.show()
 
@@ -432,11 +448,19 @@ plt.show()
 #-------------------------------------------------
 
 sns.heatmap(correlation_species, cmap = "Purples", annot=True, fmt='.2g')
+
+# Add figure size.
+plt.figure(figsize = (20,8))
+
+sns.heatmap(correlation_species, cmap = "Purples", annot=True, fmt='.2g')
 # Add title.
 plt.title('Correlation Heatmap of Iris Flowers by Species')
 # Add labels (X and Y).
 plt.xlabel('Features')
 plt.ylabel('Species')
+
+# Save the figure.
+plt.savefig('Fig. 6 - Heatmap by Species.png')
 
 # Display the figure.
 plt.show()
@@ -534,6 +558,9 @@ sns.scatterplot(x='petal_width', y='sepal_length', data=df, hue ='species', size
 plt.xlabel('Petal Width (cm)')
 plt.ylabel('Petal Length (cm)')
 
+# Save the figure.
+plt.savefig('Fig. 7 - Scatter plot by Species.png')
+
 # Display the figure.
 plt.show()
 
@@ -547,6 +574,10 @@ plt.show()
 #----------------------------------------
 
 sns.pairplot(df, hue="species", height=3,  palette=['royalblue','blueviolet','mediumslateblue'])
+
+# Save the figure.
+plt.savefig('Fig. 8 - Pair plot by Species.png')
+
 # Display the figure.
 plt.show()
 
