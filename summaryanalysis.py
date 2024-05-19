@@ -141,7 +141,7 @@ with open("analysissummary.txt", "wt") as file: #[1]
     # Writing End.
 
     file.write("End\n")
-    file.write("last commit on 20/05/2024.\n\n")
+    file.write("last commit on 19/05/2024.\n\n")
 
 #-------------------------------------------------------------------------------------------
 
@@ -152,3 +152,7 @@ with open("analysissummary.txt", "wt") as file: #[1]
 # [1] Reading and Writing to text files in Python. Availible in: https://www.geeksforgeeks.org/reading-writing-text-files-python/. [Accessed 14 May 2024].
 
 # [2] Output .info using buffer. Availible in: https://stackoverflow.com/questions/59228983/store-df-info-method-output-in-dataframe-or-csv. [Accessed 14 May 2024].
+
+#-------------------------------------------------------------------------------------------
+# End
+# last commit on 19/05/2024
