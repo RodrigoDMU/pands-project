@@ -7,11 +7,11 @@ This repository was created as part of the [Programming and Scripting](https://w
 
 ## About This Project
 
-This project is about the [Iris](https://archive.ics.uci.edu/dataset/53/iris) data set that contains 150 observations of three different species: Iris setosa, Iris virginica, and Iris versicolor, with 50 observations each.
+This project is about the [Iris](https://archive.ics.uci.edu/dataset/53/iris) data set that contains 150 observations of three different species: Iris setosa, Iris virginica, and Iris versicolor, with 50 observations each. [[2]](#2) [[5]](#5)
 
 ![Iris](Irisimag.png)
 
-Each observation consists of four features: sepal length (cm), sepal width (cm), petal length (cm), and petal width (cm).
+Each observation consists of four features: sepal length (cm), sepal width (cm), petal length (cm), and petal width (cm). [[2]](#2) [[5]](#5)
 
 ![Irisfeatures](Irispic.jpeg)
 
@@ -44,6 +44,8 @@ Unwin, A., & Kleinman, K. (2021). The iris data set: In search of the source of 
 <a id="3">[3]</a> Basic writing and formatting syntax. Availible in: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax. [Accessed 02 May 2024].
 
 <a id="4">[4]</a> The iris data set: In search of the source of virginica. Availible in: https://www.semanticscholar.org/paper/The-iris-data-set%3A-In-search-of-the-source-of-Unwin-Kleinman/4599862ea877863669a6a8e63a3c707a787d5d7e. [Accessed 02 May 2024].
+
+<a id="5">[5]</a>  KOTU, Vijay; DESHPANDE, Bala. Data science: concepts and practice. Morgan Kaufmann, 2019. Availible in: https://doi.org/10.1016/B978-0-12-814761-0.00003-4. [Accessed 02 May 2024].
 
 ## Author
 
