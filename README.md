@@ -7,13 +7,17 @@ This repository was created as part of the [Programming and Scripting](https://w
 
 ## About This Project
 
-This project is about the [Iris](https://archive.ics.uci.edu/dataset/53/iris) dataset, 
+This project is about the [Iris](https://archive.ics.uci.edu/dataset/53/iris) dataset that contains 150 observations of three different species: Iris setosa, Iris virginica, and Iris versicolor, with 50 observations each.
 
-![Iris](Irisimg.png)
+![Iris](Irisimag.png)
+
+Each observation consists of four features: sepal length (cm), sepal width (cm), petal length (cm), and petal width (cm).
+
+![Irisfeatures](Irispic.jpeg)
 
 ## Use of This Project
 
-This project is useful for demonstrating some of the skills developed for analysis, programming and data visualization using Python (.py) and ReadMe.md.
+This project is useful for demonstrating some of the skills developed for analysis, programming and data visualization using Python (.py), Jupyter Notebook (.ipynb) and ReadMe.md.
 
 ## Getting Started
 

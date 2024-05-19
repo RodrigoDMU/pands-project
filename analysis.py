@@ -425,7 +425,7 @@ plt.show()
 # Correlation Heatmap of the data set.
 #---------------------------------------
 
-sns.heatmap(correlation, cmap = "Purples", annot=True, fmt='.2g')
+sns.heatmap(correlation, cmap = "Purples", annot=True, fmt='.2f')
 # Add title.
 plt.title('Correlation Heatmap of Iris Flowers')
 # Add labels (X and Y).
@@ -447,12 +447,10 @@ plt.show()
 # Correlation Heatmap of the data set by Species. 
 #-------------------------------------------------
 
-sns.heatmap(correlation_species, cmap = "Purples", annot=True, fmt='.2g')
-
 # Add figure size.
 plt.figure(figsize = (20,8))
 
-sns.heatmap(correlation_species, cmap = "Purples", annot=True, fmt='.2g')
+sns.heatmap(correlation_species, cmap = "Purples", annot=True, fmt='.2f')
 # Add title.
 plt.title('Correlation Heatmap of Iris Flowers by Species')
 # Add labels (X and Y).
